@@ -1,28 +1,35 @@
-// useMediaSize.js
-import { useState, useEffect } from "react";
+import  { useState, useEffect, useRef } from "react";
 
-function useMediaSize() {
-  const [mediaSize, setMediaSize] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
-  });
+function useMediaSize () {
+  const [mediaSize, setMediaSize] = useState({ width: undefined, height: undefined });
+
+  const observedDiv = useRef(null);
 
   useEffect(() => {
-    const handleResize = () => {
-      setMediaSize({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    };
+    if (!observedDiv.current) {
+      return;
+    }
 
-    window.addEventListener("resize", handleResize);
+    const resizeObserver = new ResizeObserver(() => {
+      if(observedDiv.current.offsetWidth !== mediaSize.width || observedDiv.current.offsetHeight !== mediaSize.height) {
+        setMediaSize({
+          width: observedDiv.current.offsetWidth,
+          height: observedDiv.current.offsetHeight
+        });
+      }
+    });
+    
+    resizeObserver.observe(observedDiv.current);
 
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+    return function cleanup() {
+      resizeObserver.disconnect();
+    }
+  },
+  [observedDiv.current, mediaSize.width, mediaSize.height]);
 
-  return mediaSize;
+  return [observedDiv, mediaSize];
 }
 
 export default useMediaSize;
+
+

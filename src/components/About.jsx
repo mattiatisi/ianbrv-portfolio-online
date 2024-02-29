@@ -1,13 +1,27 @@
-import React from "react";
-import Footer from "./Footer";
+import React, { useEffect } from "react";
 import { useMediaQueries } from "../hooks/getWindowSize";
-import AboutImgWEB from "../assets/Alessandro Bravi About WEB.webp";
-import AboutImgPNG from "../assets/Alessandro Bravi About PNG.png";
+import useWebpSupport from "../hooks/useWebpSupport"; // Import the hook
+import useMediaSize from '../hooks/useMediaSize';
+import AboutImgWEB from "../assets/alessandro-bravi-about-webp.webp";
+import AboutImgPNG from "../assets/alessandro-bravi-about-png.png";
 import IanBrvLogo from "../assets/ianbrv-logo.webp";
-import useMediaSize from "../hooks/useMediaSize";
 
 export default function About() {
   const { isDesktopOrLaptop, isTabletOrMobile } = useMediaQueries();
+  const isWebpSupported = useWebpSupport(); // Use the hook
+  const [observedDiv, mediaSize] = useMediaSize();
+
+  useEffect(() => {
+    const preloadResources = () => {
+      const img = new Image();
+      img.src = isWebpSupported ? AboutImgWEB : AboutImgPNG;
+    };
+    preloadResources();
+
+    return () => {
+      // Cleanup if necessary
+    };
+  }, [isWebpSupported]);
 
   return (
     <>
@@ -17,34 +31,14 @@ export default function About() {
           style={{ justifyContent: "unset" }}
         >
           <section className="full-col flex">
-            <div id="aboutImg">
-              <picture
+            <div id="aboutImg" >
+              <img
+
+                src={isWebpSupported ? AboutImgWEB : AboutImgPNG}
                 loading="lazy"
                 preload="auto"
                 alt="Alessandro Bravi ianBrv"
-              >
-                <source
-                  loading="lazy"
-                  preload="auto"
-                  srcset={AboutImgWEB}
-                  alt="Alessandro Bravi ianBrv"
-                  type="image/webp"
-                />
-                <source
-                  loading="lazy"
-                  preload="auto"
-                  srcset={AboutImgPNG}
-                  alt="Alessandro Bravi ianBrv"
-                  type="image/png"
-                />
-                <img
-                  loading="lazy"
-                  preload="auto"
-                  src={AboutImgWEB}
-                  alt="Alessandro Bravi ianBrv"
-                  type="image/webp"
-                />
-              </picture>
+              />
             </div>
 
             <div className="flex-col about">
@@ -53,43 +47,40 @@ export default function About() {
                 style={{ marginBottom: "8vh" }}
               >
                 <div className="logo-text">
-                  <img
-                    loading="lazy"
-                    preload="auto"
-                    src={IanBrvLogo}
-                    alt="Alessandro Bravi ianBrv"
-                  />
+                  <img ref={observedDiv}
+                    width={mediaSize.width}
+                    height={mediaSize.height} src={IanBrvLogo} alt="Alessandro Bravi ianBrv" />
                 </div>
                 <p>{new Date().getFullYear()}</p>
               </div>
               <div className="flex-col small-gap">
                 <p>
                   Experienced graphic designer and video creator, able to use a
-                  variety of visual languages for projects. Demostrates mastery
+                  variety of visual languages for projects. Demonstrates mastery
                   in graphic design, motion graphics, and video editing. Strong
-                  conceptual skills and abilityy to convey compelling narratives
+                  conceptual skills and ability to convey compelling narratives
                   through images. Adaptive and detail-oriented, consistently
                   delivers aesthetically pleasing and effective solutions.
                 </p>
 
                 <p>
-                  <b>Education</b> <br></br>
+                  <b>Education</b> <br />
                   2012-2017 Liceo Artistico "Scuola del libro" di Urbino,
                   indirizzo Grafica pubblicitaria.
-                  <br></br>
+                  <br />
                   2019-2021 Laurea in Design della comunicazione Visiva presso
                   IED Firenze.
                 </p>
 
                 <p>
-                  <b>My Freelance work at</b> <br></br>
-                  MELPOMENE STUDIO video production agency. <br></br>
+                  <b>My Freelance work at</b> <br />
+                  MELPOMENE STUDIO video production agency. <br />
                   ARCHIMEDE6 creative studio
                 </p>
 
                 <p>
-                  <b>Language</b> <br></br>
-                  Italiano <br></br>
+                  <b>Language</b> <br />
+                  Italiano <br />
                   Inglese
                 </p>
               </div>
@@ -102,74 +93,51 @@ export default function About() {
         <main>
           <section className="flex-col about">
             <div id="aboutImg">
-              <picture
+              <img
+
+                src={isWebpSupported ? AboutImgWEB : AboutImgPNG}
                 loading="lazy"
                 preload="auto"
                 alt="Alessandro Bravi ianBrv"
-              >
-                <source
-                  loading="lazy"
-                  preload="auto"
-                  srcset={AboutImgWEB}
-                  alt="Alessandro Bravi ianBrv"
-                  type="image/webp"
-                />
-                <source
-                  loading="lazy"
-                  preload="auto"
-                  srcset={AboutImgPNG}
-                  alt="Alessandro Bravi ianBrv"
-                  type="image/png"
-                />
-                <img
-                  loading="lazy"
-                  preload="auto"
-                  src={AboutImgWEB}
-                  alt="Alessandro Bravi ianBrv"
-                  type="image/webp"
-                />
-              </picture>
+              />
             </div>
             <div className="flex-col small-gap" style={{ marginTop: "3vh" }}>
               <div className="flex justify-content-btw ">
                 <div className="logo-text">
-                  <img
-                    loading="lazy"
-                    preload="auto"
-                    src={IanBrvLogo}
-                    alt="Alessandro Bravi ianBrv"
-                  />
+                  <img ref={observedDiv}
+                    width={mediaSize.width}
+                    height={mediaSize.height} src={IanBrvLogo} alt="Alessandro Bravi ianBrv" />
                 </div>
                 <p>{new Date().getFullYear()}</p>
               </div>
               <div className="flex-col small-gap">
                 <p>
                   Experienced graphic designer and video creator, able to use a
-                  variety of visual languages for projects. Demostrates mastery
+                  variety of visual languages for projects. Demonstrates mastery
                   in graphic design, motion graphics, and video editing. Strong
-                  conceptual skills and abilityy to convey compelling narratives
+                  conceptual skills and ability to convey compelling narratives
                   through images. Adaptive and detail-oriented, consistently
                   delivers aesthetically pleasing and effective solutions.
                 </p>
 
                 <p>
-                  <b>Education</b> <br></br>
+                  <b>Education</b> <br />
                   2012-2017 Liceo Artistico "Scuola del libro" di Urbino,
                   indirizzo Grafica.
-                  <br></br>
+                  <br />
                   2019-2021 Laurea in Design della comunicazione Visiva presso
                   IED Firenze.
                 </p>
                 <div className="flex justify-content-btw">
                   <p>
-                    <b>My Freelance work at</b> <br></br>
-                    MELPOMENE STUDIO video production agency. <br></br>
+                    <b>My Freelance work at</b> <br />
+                    MELPOMENE STUDIO video production agency. <br />
                     ARCHIMEDE6 creative studio
                   </p>
 
                   <p>
-                    <b>Language</b> <br></br>
-                    Italiano <br></br>
+                    <b>Language</b> <br />
+                    Italiano <br />
                     Inglese
                   </p>
                 </div>
@@ -178,8 +146,9 @@ export default function About() {
           </section>
         </main>
       )}
-
-      <Footer></Footer>
     </>
   );
 }
+
+
+

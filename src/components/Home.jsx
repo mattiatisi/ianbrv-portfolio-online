@@ -1,67 +1,40 @@
-// Home.jsx
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { useMediaQueries } from "../hooks/getWindowSize";
-import useMediaSize from "../hooks/useMediaSize";
 import "../App.css";
-
-import VideoHomeWEB from "../assets/home/output.webm";
-import VideoHomeMP4 from "../assets/home/output.mp4";
-import PosterImg from "../assets/home/alessandro-bravi-portfolio-thumb.jpg";
-import PosterImgWeb from "../assets/home/alessandro-bravi-portfolio-thumb.webp";
+import useMediaSize from '../hooks/useMediaSize';
+import VideoHome from "../assets/home/alessandro-bravi-portfolio.mp4";
+import PosterImg from "../assets/home/alessandro-bravi-portfolio-thumb.webp";
 
 export default function Home() {
   const { isDesktopOrLaptop } = useMediaQueries();
-  const { width, height } = useMediaSize();
+  const [observedDiv, mediaSize] = useMediaSize();
 
   return (
     <>
       <h1>Alessandro Bravi</h1>
-      {isDesktopOrLaptop ? (
-        <main>
-          <section className="full-height flex-center">
-            <div className="video-container">
-              <div className="video-wrapper">
-                <video
-                  className="full-height-video"
-                  width={width}
-                  height={height}
-                  playsInline
-                  loading="lazy"
-                  autoPlay
-                  muted
-                  loop
-                  poster={PosterImgWeb}
-                  alt="Alessandro Bravi Video Home"
-                >
-                  <source src={VideoHomeWEB} type="video/webm" />
-                  <source src={VideoHomeMP4} type="video/mp4" />
-                </video>
-              </div>
+      <main>
+        <section className={isDesktopOrLaptop ? "full-height flex-center" : "flex-center flex-col"}>
+          <div className="video-container">
+            <div className="video-wrapper">
+              <video
+              className="full-height-video"
+                playsInline
+                ref={observedDiv}
+                width={mediaSize.width}
+                height={mediaSize.height} 
+                muted
+                autoPlay
+                loop
+                poster={PosterImg}
+                alt="Alessandro Bravi Video Home"
+>
+                <source src={VideoHome} type="video/mp4" />
+                
+              </video>
             </div>
-          </section>
-        </main>
-      ) : (
-        <main>
-          <section className="flex-center flex-col">
-            <div className="video-container">
-              <div className="video-wrapper">
-                <video
-                  className="full-height-video"
-                  playsInline
-                  loading="lazy"
-                  preload="auto"
-                  autoPlay
-                  muted
-                  loop
-                  poster={PosterImgWeb}
-                  alt="Alessandro Bravi Video Home"
-                >
-                  <source src={VideoHomeWEB} type="video/webm" />
-                  <source src={VideoHomeMP4} type="video/mp4" />
-                </video>
-              </div>
-            </div>
+          </div>
+          {!isDesktopOrLaptop && (
             <header className="no-padding">
               <nav>
                 <ul className="flex-col flex-center">
@@ -78,7 +51,7 @@ export default function Home() {
                   <li>
                     <a
                       className="larger-font"
-                      href="https://google.com"
+                      href="https://www.instagram.com/alessandro_bravi"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -88,9 +61,9 @@ export default function Home() {
                 </ul>
               </nav>
             </header>
-          </section>
-        </main>
-      )}
+          )}
+        </section>
+      </main>
     </>
   );
 }

@@ -2,7 +2,6 @@ import { NavLink, Outlet, useLocation } from "react-router-dom";
 import React, { useState } from "react";
 import { useMediaQueries } from "../hooks/getWindowSize";
 import IanBrvLogo from "../assets/ianbrv-logo.webp";
-import useMediaSize from "../hooks/useMediaSize";
 
 export default function Header() {
   const { pathname } = useLocation();
@@ -146,8 +145,7 @@ export default function Header() {
               </div>
               <p>
                 Born in Urbino (ITA) 1998 <br></br>
-                Visual artist with expertise in graphic design and video
-                editing.
+                Visual artist
               </p>
             </div>
           </header>

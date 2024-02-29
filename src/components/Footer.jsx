@@ -9,7 +9,6 @@ export default function Footer() {
   const { pathname } = useLocation();
   const { isDesktopOrLaptop } = useMediaQueries();
   const isProjectsPage = pathname === "/projects";
-  const { width, height } = useMediaSize();
 
   return (
     <>
@@ -26,7 +25,7 @@ export default function Footer() {
               />
             </div>
             <p>
-              Born in Urbino (ITA) 1998 <br></br>
+             IT 1998, based in Milan <br></br>
               Visual artist with expertise in graphic design and video editing.
             </p>
           </div>
@@ -35,13 +34,13 @@ export default function Footer() {
             <div className="flex align-items-end small-gap-footer">
               <div className="flex-col">
                 <p>Contacts</p>
-                <a href="mailto:bravirossi@gmail.com">
-                  E-mail: bravirossi@gmail.com
+                <a href="mailto:alessandro.bravi55@gmail.com">
+                  E-mail: alessandro.bravi55@gmail.com
                 </a>
                 <a href="tel:+393319224639 ">Cell: +39 3319224639</a>
               </div>
               <a
-                href="https://google.com"
+                href="https://www.instagram.com/alessandro_bravi"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -49,7 +48,11 @@ export default function Footer() {
               </a>
             </div>
 
-            <p>official website {new Date().getFullYear()}</p>
+            <a
+                href="https://www.mattiatisi.it"
+                target="_blank"
+                rel="noopener noreferrer"
+              >official website {new Date().getFullYear()}</a>
           </div>
         </footer>
       ) : (
@@ -57,13 +60,16 @@ export default function Footer() {
           <div className="full-col flex justify-content-btw align-items-end">
             <div className="flex-col">
               <p>Contacts</p>
-              <a href="mailto:bravirossi@gmail.com">
-                E-mail: bravirossi@gmail.com
+              <a href="mailto:alessandro.bravi55@gmail.com">
+                E-mail: alessandro.bravi55@gmail.com
               </a>
               <a href="tel:+393319224639 ">Cell: +39 3319224639</a>
             </div>
-            <p>official website {new Date().getFullYear()}</p>
-          </div>
+            <a
+                href="https://www.mattiatisi.it"
+                target="_blank"
+                rel="noopener noreferrer"
+              >official website {new Date().getFullYear()}</a>          </div>
         </footer>
       )}
     </>
