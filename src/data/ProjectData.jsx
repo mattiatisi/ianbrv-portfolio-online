@@ -2,17 +2,33 @@
 const ProjectData = [
   {
     id: 1,
-    name: "Item 1",
-    projectVideo: require("../assets/projects/project-1/alessandro-bravi-project-1.mp4"),
-    posterWebp: require("../assets/projects/project-1/alessandro-bravi-project-1-thumb.webp"),
-    posterJpg: require("../assets/projects/project-1/alessandro-bravi-project-1-thumb.jpg"),
+    name: "Project 1",
+    projectVideo: require("../assets/projects/project-1/alessandro-bravi-project.mp4"),
+    posterWebp: require("../assets/projects/project-1/alessandro-bravi-project-thumb.webp"),
+    posterJpg: require("../assets/projects/project-1/alessandro-bravi-project-thumb.jpg"),
     layout: "1",
   },
   {
     id: 2,
-    name: "Item 1",
-    imgWebp: require("../assets/projects/project-2/imm-2.webp"),
-    imgJpg: require("../assets/projects/project-2/imm-2.jpg"),
+    name: "Project 2",
+    projectVideo: require("../assets/projects/project-2/alessandro-bravi-project.mp4"),
+    posterWebp: require("../assets/projects/project-2/alessandro-bravi-project-thumb.webp"),
+    posterJpg: require("../assets/projects/project-2/alessandro-bravi-project-thumb.jpg"),
+    layout: "1",
+  },
+  {
+    id: 3,
+    name: "Project 3",
+    projectVideo: require("../assets/projects/project-3/alessandro-bravi-project.mp4"),
+    posterWebp: require("../assets/projects/project-3/alessandro-bravi-project-thumb.webp"),
+    posterJpg: require("../assets/projects/project-3/alessandro-bravi-project-thumb.jpg"),
+    layout: "1",
+  },
+  {
+    id: 4,
+    name: "Project 4",
+    imgWebp: require("../assets/projects/project-4/imm-2.webp"),
+    imgJpg: require("../assets/projects/project-4/imm-2.jpg"),
     headingRow: {
       row1: "Crown in 2020",
       row2: "Artwork",
@@ -24,25 +40,25 @@ const ProjectData = [
     layout: "2",
   },
   {
-    id: 3,
-    name: "Item 1",
-    imgWebp: require("../assets/projects/project-3/imm-3.webp"),
-    imgJpg: require("../assets/projects/project-3/imm-3.jpg"),
+    id: 5,
+    name: "Project 5",
+    imgWebp: require("../assets/projects/project-5/imm-3.webp"),
+    imgJpg: require("../assets/projects/project-5/imm-3.jpg"),
     layout: "1",
   },
 
   {
-    id: 4,
-    name: "Item 1",
+    id: 6,
+    name: "Project 6",
     imagesWebp: {
-      imgWebp1: require("../assets/projects/project-4/project-4-1.webp"),
-      imgWebp2: require("../assets/projects/project-4/project-4-2.webp"),
-      imgWebp3: require("../assets/projects/project-4/project-4-3.webp"),
+      imgWebp1: require("../assets/projects/project-6/project-4-1.webp"),
+      imgWebp2: require("../assets/projects/project-6/project-4-2.webp"),
+      imgWebp3: require("../assets/projects/project-6/project-4-3.webp"),
     },
     imagesJpg: {
-      imgJpg1: require("../assets/projects/project-4/project-4-1.jpg"),
-      imgJpg2: require("../assets/projects/project-4/project-4-2.jpg"),
-      imgJpg3: require("../assets/projects/project-4/project-4-3.jpg"),
+      imgJpg1: require("../assets/projects/project-6/project-4-1.jpg"),
+      imgJpg2: require("../assets/projects/project-6/project-4-2.jpg"),
+      imgJpg3: require("../assets/projects/project-6/project-4-3.jpg"),
     },
     headingRow: {
       row1: "Melpomene Studio",
@@ -54,10 +70,10 @@ const ProjectData = [
   },
 
   {
-    id: 5,
-    name: "Item 1",
-    imgWebp: require("../assets/projects/project-5/imm-5.webp"),
-    imgJpg: require("../assets/projects/project-5/imm-5.jpg"),
+    id: 7,
+    name: "Project 7",
+    imgWebp: require("../assets/projects/project-7/imm-5.webp"),
+    imgJpg: require("../assets/projects/project-7/imm-5.jpg"),
     headingRow: {
       row1: "New generation of Champions",
       row2: "Art direction of a Magazine INVICTA 2020",
@@ -70,23 +86,23 @@ const ProjectData = [
   },
 
   {
-    id: 6,
-    name: "Item 1",
+    id: 8,
+    name: "Project 8",
 
     imagesWebp: {
-      imgWebp1: require("../assets/projects/project-6/projects-6-1.webp"),
-      imgWebp2: require("../assets/projects/project-6/projects-6-2.webp"),
-      imgWebp3: require("../assets/projects/project-6/projects-6-3.webp"),
-      imgWebp4: require("../assets/projects/project-6/projects-6-4.webp"),
-      imgWebp5: require("../assets/projects/project-6/projects-6-5.webp"),
+      imgWebp1: require("../assets/projects/project-8/projects-6-1.webp"),
+      imgWebp2: require("../assets/projects/project-8/projects-6-2.webp"),
+      imgWebp3: require("../assets/projects/project-8/projects-6-3.webp"),
+      imgWebp4: require("../assets/projects/project-8/projects-6-4.webp"),
+      imgWebp5: require("../assets/projects/project-8/projects-6-5.webp"),
     },
 
     imagesJpg: {
-      imgJpg1: require("../assets/projects/project-6/projects-6-1.jpg"),
-      imgJpg2: require("../assets/projects/project-6/projects-6-2.jpg"),
-      imgJpg3: require("../assets/projects/project-6/projects-6-3.jpg"),
-      imgJpg4: require("../assets/projects/project-6/projects-6-4.jpg"),
-      imgJpg5: require("../assets/projects/project-6/projects-6-5.jpg"),
+      imgJpg1: require("../assets/projects/project-8/projects-6-1.jpg"),
+      imgJpg2: require("../assets/projects/project-8/projects-6-2.jpg"),
+      imgJpg3: require("../assets/projects/project-8/projects-6-3.jpg"),
+      imgJpg4: require("../assets/projects/project-8/projects-6-4.jpg"),
+      imgJpg5: require("../assets/projects/project-8/projects-6-5.jpg"),
     },
     headingRow: {
       row1: "New generation of Champions",
@@ -97,20 +113,29 @@ const ProjectData = [
   },
 
   {
-    id: 7,
-    name: "Item 1",
-    projectVideo: require("../assets/projects/project-7/alessandro-bravi-project-7.mp4"),
-    posterWebp: require("../assets/projects/project-7/alessandro-bravi-project-7-thumb.jpg"),
-    posterJpg: require("../assets/projects/project-7/alessandro-bravi-project-7-thumb.jpg"),
+    id: 9,
+    name: "Project 9",
+    projectVideo: require("../assets/projects/project-9/alessandro-bravi-project.mp4"),
+    posterWebp: require("../assets/projects/project-9/alessandro-bravi-project-thumb.jpg"),
+    posterJpg: require("../assets/projects/project-9/alessandro-bravi-project-thumb.jpg"),
     layout: "1",
   },
 
   {
-    id: 8,
-    name: "Item 1",
-    projectVideo: require("../assets/projects/project-8/alessandro-bravi-project-8.mp4"),
-    posterWebp: require("../assets/projects/project-8/alessandro-bravi-project-8-thumb.jpg"),
-    posterJpg: require("../assets/projects/project-8/alessandro-bravi-project-8-thumb.jpg"),
+    id: 10,
+    name: "Project 10",
+    projectVideo: require("../assets/projects/project-10/alessandro-bravi-project.mp4"),
+    posterWebp: require("../assets/projects/project-10/alessandro-bravi-project-thumb.jpg"),
+    posterJpg: require("../assets/projects/project-10/alessandro-bravi-project-thumb.jpg"),
+    layout: "1",
+  },
+
+  {
+    id: 11,
+    name: "Project 11",
+    projectVideo: require("../assets/projects/project-11/alessandro-bravi-project.mp4"),
+    posterWebp: require("../assets/projects/project-11/alessandro-bravi-project-thumb.jpg"),
+    posterJpg: require("../assets/projects/project-11/alessandro-bravi-project-thumb.jpg"),
     layout: "1",
   },
 

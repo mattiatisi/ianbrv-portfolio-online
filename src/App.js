@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import Projects from "./components/Projects";
 import About from "./components/About";
 import Footer from "./components/Footer";
+import NotFound from "./components/NotFound";
 
 export default function App() {
 
@@ -15,6 +16,7 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="projects" element={<Projects />} />
           <Route path="about" element={<About />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
       <Footer />
