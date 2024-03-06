@@ -162,12 +162,15 @@ const ListItem = ({ item, isWebpSupported }) => {
   );
 };
 
-const VideoPlayer = ({ item, isWebpSupported }) => {
+const VideoPlayer = ({ item, isWebpSupported, isDesktopOrLaptop }) => {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const { width, height } = useMediaSize();
+  const [isLoading, setIsLoading] = useState(true);
+  
+
 
   const togglePlay = async () => {
     if (videoRef.current) {
@@ -184,7 +187,7 @@ const VideoPlayer = ({ item, isWebpSupported }) => {
       }
     }
   };
-  
+
   const toggleAudio = () => {
     if (videoRef.current) {
       videoRef.current.muted = !videoRef.current.muted;
@@ -202,30 +205,30 @@ const VideoPlayer = ({ item, isWebpSupported }) => {
     const videoElement = videoRef.current;
 
     if (!isIOS) {
-        // Do something specific for iOS
-        if (videoElement) {
-            if (!document.fullscreenElement) {
-                videoElement.requestFullscreen()
-                    .then(() => setIsFullscreen(true))
-                    .catch((err) => console.error('Error attempting to enable full-screen mode:', err));
-            } else {
-                document.exitFullscreen()
-                    .then(() => setIsFullscreen(false))
-                    .catch((err) => console.error('Error attempting to exit full-screen mode:', err));
-            }
+      // Do something specific for iOS
+      if (videoElement) {
+        if (!document.fullscreenElement) {
+          videoElement.requestFullscreen()
+            .then(() => setIsFullscreen(true))
+            .catch((err) => console.error('Error attempting to enable full-screen mode:', err));
+        } else {
+          document.exitFullscreen()
+            .then(() => setIsFullscreen(false))
+            .catch((err) => console.error('Error attempting to exit full-screen mode:', err));
         }
+      }
     } else {
-        if (videoElement) {
-            setShowVideo(!showVideo);
-            if (!showVideo) {
-                document.body.style.overflow = 'hidden'; // Disable body scroll
-            } else {
-                document.body.style.overflow = 'auto'; // Enable body scroll
-            }
+      if (videoElement) {
+        setShowVideo(!showVideo);
+        if (!showVideo) {
+          document.body.style.overflow = 'hidden'; // Disable body scroll
+        } else {
+          document.body.style.overflow = 'auto'; // Enable body scroll
         }
-        console.log('This is not an iOS device.');
+      }
+      console.log('This is not an iOS device.');
     }
-};
+  };
 
 
 
@@ -266,24 +269,43 @@ const VideoPlayer = ({ item, isWebpSupported }) => {
   const handleVideoClick = () => {
     togglePlay();
   };
+
+
+  useEffect(() => {
+    const handleLoadedMetadata = () => {
+      setIsLoading(false);
+    };
+
+    if (videoRef.current) {
+      videoRef.current.addEventListener("loadedmetadata", handleLoadedMetadata);
+      return () => {
+        videoRef.current.removeEventListener("loadedmetadata", handleLoadedMetadata);
+      };
+    }
+  }, []);
+
   return (
+    
     <div className="video-container">
+      {isLoading && <div className="asbolute-video-loading">Loading...</div>}
+
       <div className="video-wrapper">
+
         <video
           ref={videoRef}
-          className={!showVideo ? "video-projects" : "video-projects active-video-bg"}
+          className={!showVideo ? (item.notFullHeight ? "video-projects max-height-unset" : "video-projects") : "video-projects active-video-bg"}
           width={width}
           height={height}
-          poster={isWebpSupported ? item.posterWebp : item.posterJpg}
+        poster={isWebpSupported ? item.posterWebp : item.posterJpg}
           playsInline
           autoPlay
           loop
           muted={isMuted}
           onClick={handleVideoClick} // Handle video click
-
         >
           <source src={item.projectVideo} type="video/mp4" />
         </video>
+
 
         <div className={showVideo ? "custom-controls active" : "custom-controls"}>
           <button onClick={togglePlay}>{isPlaying ? "Pause" : "Play"}</button>

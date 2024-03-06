@@ -74,8 +74,16 @@ export default function About() {
 
                 <p>
                   <b>My Freelance work at</b> <br />
-                  MELPOMENE STUDIO video production agency. <br />
-                  ARCHIMEDE6 creative studio
+                  <div className="flex-col min-gap">
+                    <div>
+                    <p>MELPOMENE STUDIO video production agency. </p><p>January 2020 - September 2022</p>
+                    </div>
+                    <div>
+                    <p>ARCHIMEDE6 creative studio</p>
+                    <p>September 2022 - January 2024</p>
+                  </div>
+                  </div>
+                 
                 </p>
 
                 <p>
@@ -129,11 +137,19 @@ export default function About() {
                   IED Firenze.
                 </p>
                 <div className="flex justify-content-btw">
-                  <p>
-                    <b>My Freelance work at</b> <br />
-                    MELPOMENE STUDIO video production agency. <br />
-                    ARCHIMEDE6 creative studio
-                  </p>
+                <p>
+                  <b>My Freelance work at</b> <br />
+                  <div className="flex-col min-gap">
+                    <div>
+                    <p>MELPOMENE STUDIO video production agency. </p><p>January 2020 - September 2022</p>
+                    </div>
+                    <div>
+                    <p>ARCHIMEDE6 creative studio</p>
+                    <p>September 2022 - January 2024</p>
+                  </div>
+                  </div>
+                 
+                </p>
 
                   <p>
                     <b>Language</b> <br />

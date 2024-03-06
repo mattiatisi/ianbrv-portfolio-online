@@ -132,6 +132,14 @@ a:hover {
   justify-content: space-between;
 }
 
+.min-gap{
+  gap: calc(var(--space)/2);
+}
+
+.bg{
+  background-color: #f41a18;
+}
+
 .grid-col-3 {
   display: grid;
   align-items: center;
@@ -252,6 +260,18 @@ video {
   max-height: 100svh;
 }
 
+.asbolute-video-loading{
+  font-size: var(--small-text);
+  position: absolute;
+  z-index: 9;
+  top: 53%;
+  left: 50%;
+  transform: translate(-50%, -53%);
+}
+
+.max-height-unset{
+  max-height: none;
+}
 .aspect-ratio {
   aspect-ratio: 16/9;
   clip-path: inset (10px 10px);
