@@ -115,7 +115,7 @@ const ProjectData = [
   {
     id: 9,
     name: "Project 9",
-    projectVideo: require("../assets/projects/project-9/alessandro-bravi-project.mp4"),
+    projectVideo: require("../assets/projects/project-9/alessandro-bravi-video-opt.mp4"),
     posterWebp: require("../assets/projects/project-9/alessandro-bravi-project-thumb.jpg"),
     posterJpg: require("../assets/projects/project-9/alessandro-bravi-project-thumb.jpg"),
     notFullHeight: true,
@@ -143,12 +143,6 @@ const ProjectData = [
     notFullHeight: true,
 
   },
-
-
-
-
-
-
 
 ];
 
