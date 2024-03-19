@@ -129,6 +129,7 @@ const ProjectData = [
     projectVideo: require("../assets/projects/project-10/alessandro-bravi-project.mp4"),
     posterWebp: require("../assets/projects/project-10/alessandro-bravi-project-thumb.jpg"),
     posterJpg: require("../assets/projects/project-10/alessandro-bravi-project-thumb.jpg"),
+    notFullHeight: true,
     layout: "1",
   },
 
@@ -139,6 +140,8 @@ const ProjectData = [
     posterWebp: require("../assets/projects/project-11/alessandro-bravi-project-thumb.jpg"),
     posterJpg: require("../assets/projects/project-11/alessandro-bravi-project-thumb.jpg"),
     layout: "1",
+    notFullHeight: true,
+
   },
 
 

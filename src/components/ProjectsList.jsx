@@ -279,7 +279,6 @@ const VideoPlayer = ({ item, isWebpSupported, isDesktopOrLaptop }) => {
     if (videoRef.current) {
       videoRef.current.addEventListener("loadedmetadata", handleLoadedMetadata);
       return () => {
-        videoRef.current.removeEventListener("loadedmetadata", handleLoadedMetadata);
       };
     }
   }, []);
